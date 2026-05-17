@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Олександр Васильєв',
-  role: 'Senior Frontend / Full-Stack Developer',
+  role: 'Senior Architect / Full-Stack Developer',
   location: 'Львів, Україна · Remote / Hybrid',
   email: 'oleksandr.morlock@gmail.com',
   telegram: '@copcoopallie',
