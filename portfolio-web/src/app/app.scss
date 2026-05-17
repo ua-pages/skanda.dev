@@ -320,6 +320,64 @@ h3 {
   border-radius: 1.8rem;
 }
 
+.contact-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.telegram-qr-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 38%),
+    rgba(15, 23, 42, 0.72);
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.22);
+}
+
+.telegram-qr-content {
+  display: grid;
+  gap: 0.55rem;
+
+  .eyebrow {
+    margin-bottom: 0.15rem;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+}
+
+.telegram-link {
+  width: fit-content;
+  color: #bfdbfe;
+  font-weight: 800;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.telegram-qr-image {
+  width: 8.25rem;
+  height: 8.25rem;
+  padding: 0.55rem;
+  border-radius: 1rem;
+  background: #fff;
+  object-fit: contain;
+}
+
 @media (max-width: 900px) {
   .topbar,
   .hero,
@@ -354,5 +412,15 @@ h3 {
 
   .bot-flow {
     justify-content: flex-start;
+  }
+
+  .telegram-qr-card {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .telegram-qr-image {
+    width: 9.25rem;
+    height: 9.25rem;
   }
 }

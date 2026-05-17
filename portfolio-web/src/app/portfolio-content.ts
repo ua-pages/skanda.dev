@@ -1,61 +1,61 @@
 export const profile = {
-  name: 'Oleksandr Vasyliev',
+  name: 'Олександр Васильєв',
   role: 'Senior Frontend / Full-Stack Developer',
-  location: 'Lviv, Ukraine · Remote / Hybrid',
+  location: 'Львів, Україна · Remote / Hybrid',
   email: 'oleksandr.morlock@gmail.com',
   telegram: '@copcoopallie',
   github: 'https://github.com/M00rlock',
   headline:
-    'I build maintainable web products with Angular, TypeScript, SSR architecture and pragmatic Node.js/NestJS backend integrations.',
+    'Створюю підтримувані web-продукти з Angular, TypeScript, SSR-архітектурою та практичними Node.js/NestJS інтеграціями.',
   summary:
-    'Frontend-leaning full-stack engineer with 10+ years in web development, strong Angular/TypeScript background, practical backend experience and a focus on performance, architecture, refactoring and code quality.',
+    'Full-stack розробник із сильним frontend-фокусом та 10+ роками у web-розробці. Маю глибокий досвід з Angular/TypeScript, практичний backend-досвід і фокус на performance, архітектурі, рефакторингу та якості коду.',
 };
 
 export const highlights = [
-  'Angular / TypeScript / RxJS architecture',
-  'SPA & SSR applications',
-  'Node.js / NestJS API integrations',
-  'Performance optimization & refactoring',
-  'Code review, mentoring and delivery ownership',
+  'Angular / TypeScript / RxJS архітектура',
+  'SPA та SSR застосунки',
+  'Node.js / NestJS API інтеграції',
+  'Оптимізація продуктивності та рефакторинг',
+  'Code review, mentoring та ownership delivery',
 ];
 
 export const services = [
   {
-    title: 'Frontend architecture',
-    text: 'Angular/React applications, component systems, state management, SSR, maintainability and scalable UI structure.',
+    title: 'Frontend архітектура',
+    text: 'Angular/React застосунки, component systems, state management, SSR, підтримувана UI-структура та масштабованість.',
   },
   {
-    title: 'Legacy modernization',
-    text: 'Migration from older frontend codebases into cleaner SPA/SSR architecture with safer refactoring and better delivery flow.',
+    title: 'Модернізація legacy',
+    text: 'Міграція старих frontend codebase у чистішу SPA/SSR архітектуру з безпечним рефакторингом і кращим delivery flow.',
   },
   {
     title: 'Full-stack delivery',
-    text: 'NestJS/Node.js APIs, REST/GraphQL integrations, proxy layers, auth flows and pragmatic backend tasks around frontend products.',
+    text: 'NestJS/Node.js API, REST/GraphQL інтеграції, proxy layers, auth flows та практичні backend-задачі навколо frontend-продуктів.',
   },
   {
     title: 'Performance & stability',
-    text: 'Profiling, UI responsiveness, API integration stability, rendering improvements and long-term maintainability work.',
+    text: 'Профілювання, UI responsiveness, стабільність API-інтеграцій, покращення rendering та довгострокової підтримуваності.',
   },
 ];
 
 export const experience = [
   {
     company: 'Freelance',
-    period: '2023 — Present',
+    period: '2023 — дотепер',
     role: 'Full-Stack / Frontend Engineer',
-    text: 'Angular/React development, REST/GraphQL integrations, Node.js/NestJS backend tasks, refactoring, tests and code review.',
+    text: 'Angular/React розробка, REST/GraphQL інтеграції, Node.js/NestJS backend-задачі, рефакторинг, тести та code review.',
   },
   {
     company: 'Vodworks',
     period: '2020 — 2021',
     role: 'Senior Web Developer / Tech Lead',
-    text: 'SPA development, architecture decisions, R&D, performance optimization, unit testing and technical support for the team.',
+    text: 'SPA розробка, архітектурні рішення, R&D, оптимізація продуктивності, unit testing та технічна підтримка команди.',
   },
   {
     company: 'ELEKS',
     period: '2015 — 2018',
     role: 'Middle Web Application Developer',
-    text: 'Enterprise/product web applications, frontend architecture, Angular/React work, unit testing, mentoring and code reviews.',
+    text: 'Enterprise/product web-застосунки, frontend архітектура, Angular/React, unit testing, mentoring та code reviews.',
   },
 ];
 

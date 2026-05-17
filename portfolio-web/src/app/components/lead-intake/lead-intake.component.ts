@@ -20,9 +20,9 @@ export class LeadIntakeComponent {
   readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(80)]],
     contact: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(140)]],
-    service: ['Frontend / Full-stack development', [Validators.required]],
-    budget: ['Not sure yet', [Validators.required]],
-    timeline: ['Flexible', [Validators.required]],
+    service: ['Frontend / Full-stack розробка', [Validators.required]],
+    budget: ['Поки не визначено', [Validators.required]],
+    timeline: ['Гнучко', [Validators.required]],
     message: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(2000)]],
   });
 
@@ -43,15 +43,15 @@ export class LeadIntakeComponent {
         this.form.reset({
           name: '',
           contact: '',
-          service: 'Frontend / Full-stack development',
-          budget: 'Not sure yet',
-          timeline: 'Flexible',
+          service: 'Frontend / Full-stack розробка',
+          budget: 'Поки не визначено',
+          timeline: 'Гнучко',
           message: '',
         });
       },
       error: () => {
         this.isSubmitting = false;
-        this.error = 'Could not send the request. Please message me directly on Telegram: @copcoopallie';
+        this.error = 'Не вдалося надіслати заявку. Напишіть мені напряму в Telegram: @copcoopallie';
       },
     });
   }
