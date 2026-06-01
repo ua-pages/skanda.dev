@@ -1,4 +1,4 @@
-import { profile, highlights, services, experience, stack } from '../data/portfolio-content.js';
+import { profile, highlights, skills, experience, stack } from '../data/portfolio-content.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -100,9 +100,9 @@ template.innerHTML = `
     h1 {
       max-width: 820px;
       margin-bottom: 1.2rem;
-      font-size: clamp(3rem, 8vw, 6.8rem);
-      line-height: 0.92;
-      letter-spacing: -0.075em;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
     }
 
     h2 {
@@ -243,9 +243,19 @@ template.innerHTML = `
     }
 
     .glass-card {
-      min-height: 210px;
+      min-height: 100px;
       padding: 1.2rem;
       border-radius: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .glass-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #dbeafe;
     }
 
     .leadflow {
@@ -415,7 +425,7 @@ template.innerHTML = `
         <strong>Олександр Васильєв</strong>
       </a>
       <div class="nav-links">
-        <a href="#services">Послуги</a>
+        <a href="#skills">Навички</a>
         <a href="#leadflow">Telegram flow</a>
         <a href="#experience">Досвід</a>
         <a href="#contact">Контакти</a>
@@ -424,7 +434,7 @@ template.innerHTML = `
 
     <section id="top" class="hero section">
       <div class="hero-copy">
-        <p class="eyebrow">Angular SSR · NestJS · Інженерний підхід до продукту</p>
+        <p class="eyebrow">Веб-розробка · Full-stack · Інженерний підхід до продукту</p>
         <h1 id="role"></h1>
         <p class="lead" id="headline"></p>
         <p class="summary" id="summary"></p>
@@ -442,34 +452,34 @@ template.innerHTML = `
       </div>
 
       <aside class="signal-card" aria-label="Професійні акценти">
-        <div class="availability">Відкритий до Senior / Tech Lead / Angular ролей</div>
+        <div class="availability">Відкритий до Senior / Tech Lead ролей</div>
         <ul id="highlights"></ul>
       </aside>
     </section>
 
     <section class="section stack-strip" id="stackStrip" aria-label="Технологічний стек"></section>
 
-    <section id="services" class="section section-grid">
+    <section id="skills" class="section section-grid">
       <div class="section-heading">
-        <p class="eyebrow">Чим можу бути корисний</p>
-        <h2>Підтримувані web-продукти, а не просто екрани.</h2>
-        <p>Фокусуюся на архітектурі, стабільності та delivery — речах, які роблять продукт корисним і після першого релізу.</p>
+        <p class="eyebrow">Технічні навички</p>
+        <h2>Сучасна веб-розробка від клієнта до сервера.</h2>
+        <p>Комплексний підхід: проєктування архітектури, інтеграції, оптимізація та супровід продуктів будь-якої складності.</p>
       </div>
-      <div class="cards-grid" id="servicesGrid"></div>
+      <div class="cards-grid" id="skillsGrid"></div>
     </section>
 
     <section id="leadflow" class="section leadflow">
       <div>
         <p class="eyebrow">Функція портфоліо</p>
         <h2>Telegram Lead Flow</h2>
-        <p>Це портфоліо працює не лише як сайт-візитка, а як невеликий full-stack продукт: форма контакту надсилає структуровані заявки в Telegram через NestJS API.</p>
+        <p>Це портфоліо працює не лише як сайт-візитка, а як невеликий full-stack продукт: форма контакту надсилає структуровані заявки в Telegram через API.</p>
       </div>
       <div class="bot-flow" aria-label="Процес обробки заявки">
         <span>Відвідувач</span>
         <strong>→</strong>
-        <span>WebComponents форма</span>
+        <span>Форма</span>
         <strong>→</strong>
-        <span>Node.js API</span>
+        <span>API</span>
         <strong>→</strong>
         <span>Telegram-заявка</span>
       </div>
@@ -478,8 +488,8 @@ template.innerHTML = `
     <section id="experience" class="section section-grid">
       <div class="section-heading">
         <p class="eyebrow">Досвід</p>
-        <h2>Full-stack background із сильним frontend-фокусом.</h2>
-        <p>10+ років у freelance, product та enterprise середовищах з відповідальністю за архітектуру, якість коду й delivery.</p>
+        <h2>Багаторічний досвід у веб-розробці.</h2>
+        <p>10+ років у продуктових, enterprise та freelance середовищах з відповідальністю за архітектуру, якість коду й delivery.</p>
       </div>
       <div class="timeline" id="experienceList"></div>
     </section>
@@ -487,7 +497,7 @@ template.innerHTML = `
     <section id="contact" class="section contact-section">
       <div class="section-heading">
         <p class="eyebrow">Контакти</p>
-        <h2>Є продукт, команда або legacy frontend, якому потрібна допомога?</h2>
+        <h2>Є продукт, команда або застосунок, якому потрібна допомога?</h2>
         <p>Залиште коротку заявку. Backend передасть її в Telegram, щоб я міг швидко побачити контекст і відповісти.</p>
       </div>
       <div class="contact-actions">
@@ -536,22 +546,23 @@ export class AppRoot extends HTMLElement {
       strip.appendChild(span);
     });
 
-    const grid = this.shadowRoot.getElementById('servicesGrid');
-    services.forEach(s => {
+    const grid = this.shadowRoot.getElementById('skillsGrid');
+    skills.forEach(s => {
       const article = document.createElement('article');
       article.className = 'glass-card';
-      article.innerHTML = `<h3>${s.title}</h3><p>${s.text}</p>`;
+      article.innerHTML = `<h3>${s}</h3>`;
       grid.appendChild(article);
     });
 
     const list = this.shadowRoot.getElementById('experienceList');
     experience.forEach(e => {
       const article = document.createElement('article');
+      const company = e.company ? `<strong>${e.company}</strong>` : '';
       article.innerHTML = `
         <div>
           <span>${e.period}</span>
           <h3>${e.role}</h3>
-          <strong>${e.company}</strong>
+          ${company}
         </div>
         <p>${e.text}</p>
       `;
