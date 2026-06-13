@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from 'fs';
 import { createServer } from 'http';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { handleContact } from './contact.js';
+import { obrobytyKontakt } from './contact.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -23,7 +23,7 @@ if (existsSync(envPath)) {
 const PORT = Number(process.env.PORT || 3333);
 const WEB_ORIGIN = process.env.WEB_ORIGIN || 'http://localhost:4200';
 
-function setCors(res) {
+function vstanovytyKors(res) {
   res.setHeader('Access-Control-Allow-Origin', WEB_ORIGIN);
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -31,7 +31,7 @@ function setCors(res) {
 }
 
 const server = createServer((req, res) => {
-  setCors(res);
+  vstanovytyKors(res);
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -42,7 +42,7 @@ const server = createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
 
   if (req.method === 'POST' && url.pathname === '/api/contact') {
-    handleContact(req, res);
+    obrobytyKontakt(req, res);
     return;
   }
 

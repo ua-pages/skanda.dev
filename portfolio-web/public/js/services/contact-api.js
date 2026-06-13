@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3333/api/contact';
 
-export async function createLead(payload) {
+export async function stvorytyLider(payload) {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

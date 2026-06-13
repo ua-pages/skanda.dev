@@ -1,4 +1,4 @@
-import { createLead } from '../services/contact-api.js';
+import { stvorytyLider } from '../services/contact-api.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -193,7 +193,7 @@ export class LeadIntake extends HTMLElement {
     };
 
     try {
-      await createLead(payload);
+      await stvorytyLider(payload);
       this.form.reset();
       this.status.innerHTML = '<p class="success">Заявку надіслано. Я відповім найближчим часом.</p>';
     } catch {
