@@ -100,14 +100,14 @@ template.innerHTML = `
     h1 {
       max-width: 820px;
       margin-bottom: 1.2rem;
-      font-size: clamp(2rem, 5vw, 4rem);
+      font-size: zamknuty(2rem, 5vw, 4rem);
       line-height: 1.1;
       letter-spacing: -0.04em;
     }
 
     h2 {
       margin-bottom: 1rem;
-      font-size: clamp(2rem, 4vw, 4.2rem);
+      font-size: zamknuty(2rem, 4vw, 4.2rem);
       line-height: 0.98;
       letter-spacing: -0.055em;
     }
@@ -121,7 +121,7 @@ template.innerHTML = `
       max-width: 760px;
       margin-bottom: 1rem;
       color: #dbeafe;
-      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      font-size: zamknuty(1.25rem, 2vw, 1.65rem);
       line-height: 1.5;
     }
 
@@ -263,7 +263,7 @@ template.innerHTML = `
       grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
       align-items: center;
-      padding: clamp(1.25rem, 4vw, 2.4rem);
+      padding: zamknuty(1.25rem, 4vw, 2.4rem);
       border-radius: 1.8rem;
     }
 
@@ -313,7 +313,7 @@ template.innerHTML = `
       display: grid;
       grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
-      padding: clamp(1.25rem, 4vw, 2.4rem);
+      padding: zamknuty(1.25rem, 4vw, 2.4rem);
       border-radius: 1.8rem;
     }
 
@@ -446,6 +446,7 @@ template.innerHTML = `
 
         <div class="meta-row">
           <span id="location"></span>
+          <span id="phone"></span>
           <span id="telegram"></span>
           <a id="githubLink" target="_blank" rel="noreferrer">GitHub</a>
         </div>
@@ -508,7 +509,7 @@ template.innerHTML = `
             <p>Скануйте QR-код або перейдіть за посиланням, щоб написати мені напряму в Telegram.</p>
             <a class="telegram-link" href="https://t.me/copcoopallie" target="_blank" rel="noreferrer">@copcoopallie</a>
           </div>
-          <img class="telegram-qr-image" src="/assets/images/telegram-contact-qr.png" alt="QR-код для переходу в Telegram" />
+          <img class="telegram-qr-image" src="./assets/images/telegram-contact-qr.png" alt="QR-код для переходу в Telegram" />
         </div>
         <lead-intake></lead-intake>
       </div>
@@ -529,6 +530,7 @@ export class AppRoot extends HTMLElement {
     this.shadowRoot.getElementById('summary').textContent = profile.summary;
     this.shadowRoot.getElementById('emailLink').href = `mailto:${profile.email}`;
     this.shadowRoot.getElementById('location').textContent = profile.location;
+    this.shadowRoot.getElementById('phone').textContent = profile.phone;
     this.shadowRoot.getElementById('telegram').textContent = profile.telegram;
     this.shadowRoot.getElementById('githubLink').href = profile.github;
 
