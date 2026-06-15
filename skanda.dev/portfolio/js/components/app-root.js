@@ -454,7 +454,7 @@ template.innerHTML = `
 
       .hero {
         min-height: auto;
-        padding-top: 2rem;
+        padding-top: 0.5rem;
       }
 
       h1 {
@@ -504,6 +504,12 @@ template.innerHTML = `
     @media (max-width: 480px) {
       .page-shell {
         width: calc(100% - 16px);
+        padding-top: 0;
+      }
+
+      .topbar {
+        top: 0.5rem;
+        padding: 0.5rem 0.7rem;
       }
 
       .nav-links a {
@@ -511,16 +517,25 @@ template.innerHTML = `
         padding: 0.35rem 0.45rem;
       }
 
+      .hero {
+        padding-top: 0;
+      }
+
+      .section {
+        margin-top: 1rem;
+      }
+
       h1 {
         font-size: clamp(1.3rem, 8vw, 1.6rem);
+        margin-bottom: 0.6rem;
       }
 
       .lead {
         font-size: 0.95rem;
       }
 
-      .section {
-        margin-top: 2rem;
+      .signal-card {
+        padding: 0.8rem;
       }
 
       .hero-actions {
