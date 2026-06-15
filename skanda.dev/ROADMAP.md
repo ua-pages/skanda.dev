@@ -14,18 +14,21 @@
 - [x] robots.txt доданий
 - [x] sitemap.xml доданий
 - [x] Open Graph metadata (частково — бракує og:image, og:url)
+- [x] Telegram notification service + API endpoint для форми заявки
+- [x] README.md + MIT LICENSE
+- [x] UI перевірено після QR-коду
 
 ## Найближчі задачі
 
-- [ ] Додати README.md
-- [ ] Додати LICENSE (MIT)
+- [x] README.md
+- [x] LICENSE (MIT)
 - [x] Додати Telegram notification service у backend
 - [x] Підключити реальний `TELEGRAM_BOT_TOKEN`
 - [x] Отримати й додати `TELEGRAM_CHAT_ID`
 - [x] Перевірити відправку заявки в Telegram
 - [x] Додати `.env` локально на основі `.env.example`
 - [x] Перевірити форму заявки локально — API endpoint працює
-- [ ] Перевірити UI після додавання QR-коду
+- [x] Перевірити UI після додавання QR-коду
 - [ ] Додати production build script (якщо потрібно)
 
 ## Frontend ideas
@@ -62,8 +65,8 @@
 ## Архітектурні нотатки
 
 **Поточна архітектура:**
-- Фронтенд: Vanilla JS Web Components (не Angular SSR)
-- Бекенд: простий Node.js HTTP сервер для статики (не NestJS)
+- Фронтенд: Vanilla JS Web Components
+- Бекенд: простий Node.js HTTP сервер для статики
 - Стек був переглянутий на користь мінімалістичного підходу
 
 **Telegram:**
