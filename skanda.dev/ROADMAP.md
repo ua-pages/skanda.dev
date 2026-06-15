@@ -33,6 +33,7 @@
 
 ## Frontend ideas
 
+- [ ] Адаптація під мобільні пристрої
 - [ ] Покращити Hero section
 - [ ] Додати screenshots / preview у README
 - [ ] Додати og:image та og:url метадані
@@ -68,6 +69,8 @@
 - Фронтенд: Vanilla JS Web Components
 - Бекенд: простий Node.js HTTP сервер для статики
 - Стек був переглянутий на користь мінімалістичного підходу
+
+**Браузери для тестування:** Safari + Brave (Chromium)
 
 **Telegram:**
 QR code веде напряму на Telegram-профіль:
