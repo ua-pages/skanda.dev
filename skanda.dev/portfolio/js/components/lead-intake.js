@@ -10,8 +10,8 @@ template.innerHTML = `
     .lead-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      padding: 1.1rem;
+      gap: 1.15rem;
+      padding: 1.3rem;
       border: 1px solid var(--line, rgba(148,163,184,0.22));
       border-radius: 1.4rem;
       background: rgba(15, 23, 42, 0.72);
@@ -33,7 +33,7 @@ template.innerHTML = `
       background: rgba(2, 6, 23, 0.52);
       color: #f8fafc;
       font: inherit;
-      padding: 0.82rem 0.9rem;
+      padding: 0.9rem 1.1rem;
       outline: none;
       transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
       box-sizing: border-box;
@@ -52,7 +52,7 @@ template.innerHTML = `
     button {
       border: 0;
       border-radius: 999px;
-      padding: 0.95rem 1.2rem;
+      padding: 1rem 1.4rem;
       color: #020617;
       background: linear-gradient(135deg, #67e8f9, #a78bfa 55%, #f0abfc);
       font-weight: 800;
