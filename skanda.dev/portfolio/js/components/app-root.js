@@ -1,4 +1,4 @@
-import { profile, highlights, skills, experience, stack } from '../data/portfolio-content.js';
+import { profile, highlights, skills, problems, stack } from '../data/portfolio-content.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -125,7 +125,7 @@ template.innerHTML = `
       line-height: 1.5;
     }
 
-    .summary, .section-heading p, .glass-card p, .timeline p, .leadflow p {
+    .summary, .section-heading p, .glass-card p, .problems p, .leadflow p {
       color: var(--muted, #94a3b8);
       line-height: 1.72;
     }
@@ -179,7 +179,7 @@ template.innerHTML = `
       background: rgba(15, 23, 42, 0.48);
     }
 
-    .signal-card, .glass-card, .leadflow, .timeline article, .contact-section {
+    .signal-card, .glass-card, .leadflow, .problems article, .contact-section {
       border: 1px solid var(--line, rgba(148, 163, 184, 0.18));
       background: var(--surface, rgba(15, 23, 42, 0.62));
       box-shadow: 0 24px 80px rgba(2, 6, 23, 0.24);
@@ -285,29 +285,39 @@ template.innerHTML = `
       color: var(--cyan, #67e8f9);
     }
 
-    .timeline {
+    .problems {
       display: grid;
       gap: 1rem;
     }
 
-    .timeline article {
+    .problems article {
       display: grid;
-      grid-template-columns: minmax(210px, 0.6fr) minmax(0, 1fr);
-      gap: 1rem;
       padding: 1.2rem;
       border-radius: 1.4rem;
+      gap: 0.6rem;
     }
 
-    .timeline span {
-      display: block;
-      margin-bottom: 0.7rem;
-      color: var(--cyan, #67e8f9);
-      font-size: 0.86rem;
+    .problems .tag {
+      display: inline-block;
+      width: fit-content;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      color: #020617;
+      font-size: 0.72rem;
       font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #67e8f9, #a78bfa);
     }
 
-    .timeline strong {
-      color: #cbd5e1;
+    .problems h3 {
+      margin: 0;
+    }
+
+    .problems p {
+      margin: 0;
+      color: var(--muted, #94a3b8);
+      line-height: 1.72;
     }
 
     .contact-section {
@@ -396,7 +406,7 @@ template.innerHTML = `
       }
 
     @media (max-width: 900px) {
-      .topbar, .hero, .section-grid, .leadflow, .contact-section, .timeline article {
+      .topbar, .hero, .section-grid, .leadflow, .contact-section, .problems article {
         grid-template-columns: 1fr;
       }
 
@@ -624,10 +634,10 @@ template.innerHTML = `
     <section id="experience" class="section section-grid">
       <div class="section-heading">
         <p class="eyebrow">Досвід</p>
-        <h2>Багаторічний досвід у веб-розробці.</h2>
-        <p>10+ років у продуктових, enterprise та freelance середовищах з відповідальністю за архітектуру, якість коду й delivery.</p>
+        <h2>Задачі, які я вирішував.</h2>
+        <p>Проблеми та виклики, з якими стикався в реальних проєктах — від міграції legacy до архітектурних рішень і технічного лідерства.</p>
       </div>
-      <div class="timeline" id="experienceList"></div>
+      <div class="problems" id="problemsList"></div>
     </section>
 
     <section id="contact" class="section contact-section">
@@ -730,17 +740,13 @@ export class AppRoot extends HTMLElement {
       grid.appendChild(article);
     });
 
-    const list = this.shadowRoot.getElementById('experienceList');
-    experience.forEach(e => {
+    const list = this.shadowRoot.getElementById('problemsList');
+    problems.forEach(p => {
       const article = document.createElement('article');
-      const company = e.company ? `<strong>${e.company}</strong>` : '';
       article.innerHTML = `
-        <div>
-          <span>${e.period}</span>
-          <h3>${e.role}</h3>
-          ${company}
-        </div>
-        <p>${e.text}</p>
+        <span class="tag">${p.tag}</span>
+        <h3>${p.title}</h3>
+        <p>${p.text}</p>
       `;
       list.appendChild(article);
     });
