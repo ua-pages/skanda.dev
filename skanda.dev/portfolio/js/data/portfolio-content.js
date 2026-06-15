@@ -2,7 +2,7 @@ export const profile = {
   name: 'Олександр Васильєв',
   role: 'Старший універсальний програміст з ухилом на клієнтську частину',
   location: '🇺🇦 Львів, Україна · 🌐 Віддалено / Комбіновано',
-  email: 'oleksandr.morlock@ukr.net',
+  email: 'oleksandr.morlock@gmail.com',
   phone: '+380 68 678 70 96',
   telegram: '@copcoopallie',
   github: 'https://github.com/M00rlock',

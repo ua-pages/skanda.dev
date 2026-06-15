@@ -366,14 +366,33 @@ template.innerHTML = `
       text-decoration: underline;
     }
 
-    .telegram-qr-image {
-      width: 8.25rem;
-      height: 8.25rem;
-      padding: 0.55rem;
-      border-radius: 1rem;
-      background: #fff;
-      object-fit: contain;
-    }
+      .telegram-qr-image {
+        width: 8.25rem;
+        height: 8.25rem;
+        padding: 0.55rem;
+        border-radius: 1rem;
+        background: #fff;
+        object-fit: contain;
+      }
+
+      #copyTip {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        translate: -50%;
+        padding: 0.7rem 1.2rem;
+        border-radius: 999px;
+        background: #166534;
+        color: #bbf7d0;
+        font-size: 0.9rem;
+        font-weight: 700;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      #copyTip.show-tip {
+        opacity: 1;
+      }
 
     @media (max-width: 900px) {
       .topbar, .hero, .section-grid, .leadflow, .contact-section, .timeline article {
@@ -441,7 +460,7 @@ template.innerHTML = `
 
         <div class="hero-actions">
           <a class="button primary" href="#contact">Обговорити проєкт</a>
-          <a class="button ghost" id="emailLink">Написати на email</a>
+          <a class="button ghost" id="emailLink" role="button" tabindex="0">Копіювати email</a>
         </div>
 
         <div class="meta-row">
@@ -528,7 +547,29 @@ export class AppRoot extends HTMLElement {
     this.shadowRoot.getElementById('role').textContent = profile.role;
     this.shadowRoot.getElementById('headline').textContent = profile.headline;
     this.shadowRoot.getElementById('summary').textContent = profile.summary;
-    this.shadowRoot.getElementById('emailLink').href = `mailto:${profile.email}`;
+    const emailLink = this.shadowRoot.getElementById('emailLink');
+    emailLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(profile.email).then(() => {
+        const tip = this.shadowRoot.getElementById('copyTip') || (() => {
+          const el = document.createElement('span');
+          el.id = 'copyTip';
+          el.textContent = 'Email скопійовано';
+          emailLink.parentNode.appendChild(el);
+          return el;
+        })();
+        tip.classList.add('show-tip');
+        setTimeout(() => tip.classList.remove('show-tip'), 2000);
+      }).catch(() => {
+        // fallback — виділити текст
+        const ta = document.createElement('textarea');
+        ta.value = profile.email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      });
+    });
     this.shadowRoot.getElementById('location').textContent = profile.location;
     this.shadowRoot.getElementById('phone').textContent = profile.phone;
     this.shadowRoot.getElementById('telegram').textContent = profile.telegram;
