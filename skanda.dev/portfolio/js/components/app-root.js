@@ -575,18 +575,8 @@ export class AppRoot extends HTMLElement {
       e.preventDefault();
       const el = this.shadowRoot.getElementById('contact');
       if (el) {
-        const target = el.getBoundingClientRect().top + window.scrollY - 96;
-        const start = window.scrollY;
-        const dist = target - start;
-        const dur = 600;
-        const startTime = performance.now();
-        function step(now) {
-          const t = Math.min((now - startTime) / dur, 1);
-          const ease = 1 - --t * t * t * t;
-          window.scrollTo(0, start + dist * ease);
-          if (t < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
+        const top = el.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
     this.shadowRoot.getElementById('location').textContent = profile.location;
