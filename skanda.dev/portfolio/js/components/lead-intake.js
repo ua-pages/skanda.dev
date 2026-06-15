@@ -33,10 +33,12 @@ template.innerHTML = `
       background: rgba(2, 6, 23, 0.52);
       color: #f8fafc;
       font: inherit;
-      padding: 0.9rem 1.1rem;
+      padding: 0.5rem 1.1rem;
+      min-height: 1.8rem;
       outline: none;
       transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
       box-sizing: border-box;
+      -webkit-appearance: none;
     }
 
     select {
@@ -47,11 +49,13 @@ template.innerHTML = `
       color: #f8fafc;
       font: inherit;
       font-size: 0.95rem;
-      padding: 0.9rem 2.4rem 0.9rem 1.1rem;
+      padding: 0.5rem 2.4rem 0.5rem 1.1rem;
+      min-height: 1.8rem;
       outline: none;
       transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
       box-sizing: border-box;
       appearance: none;
+      -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='m1.5 1.5 4.5 4.5 4.5-4.5'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 1rem center;
