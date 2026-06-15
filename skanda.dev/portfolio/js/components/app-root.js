@@ -100,14 +100,14 @@ template.innerHTML = `
     h1 {
       max-width: 820px;
       margin-bottom: 1.2rem;
-      font-size: zamknuty(2rem, 5vw, 4rem);
+      font-size: clamp(2rem, 5vw, 4rem);
       line-height: 1.1;
       letter-spacing: -0.04em;
     }
 
     h2 {
       margin-bottom: 1rem;
-      font-size: zamknuty(2rem, 4vw, 4.2rem);
+      font-size: clamp(2rem, 4vw, 4.2rem);
       line-height: 0.98;
       letter-spacing: -0.055em;
     }
@@ -121,7 +121,7 @@ template.innerHTML = `
       max-width: 760px;
       margin-bottom: 1rem;
       color: #dbeafe;
-      font-size: zamknuty(1.25rem, 2vw, 1.65rem);
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
       line-height: 1.5;
     }
 
@@ -263,7 +263,7 @@ template.innerHTML = `
       grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
       align-items: center;
-      padding: zamknuty(1.25rem, 4vw, 2.4rem);
+      padding: clamp(1.25rem, 4vw, 2.4rem);
       border-radius: 1.8rem;
     }
 
@@ -313,7 +313,7 @@ template.innerHTML = `
       display: grid;
       grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
-      padding: zamknuty(1.25rem, 4vw, 2.4rem);
+      padding: clamp(1.25rem, 4vw, 2.4rem);
       border-radius: 1.8rem;
     }
 
