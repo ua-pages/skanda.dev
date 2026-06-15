@@ -149,6 +149,7 @@ template.innerHTML = `
       border-radius: 999px;
       font-weight: 800;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .button.primary {
@@ -459,7 +460,7 @@ template.innerHTML = `
         <p class="summary" id="summary"></p>
 
         <div class="hero-actions">
-          <a class="button primary" href="#contact">Обговорити проєкт</a>
+          <a class="button primary" id="contactBtn">Обговорити проєкт</a>
           <a class="button ghost" id="emailLink" role="button" tabindex="0">Копіювати email</a>
         </div>
 
@@ -569,6 +570,11 @@ export class AppRoot extends HTMLElement {
         document.execCommand('copy');
         document.body.removeChild(ta);
       });
+    });
+    this.shadowRoot.getElementById('contactBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const el = this.shadowRoot.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     });
     this.shadowRoot.getElementById('location').textContent = profile.location;
     this.shadowRoot.getElementById('phone').textContent = profile.phone;
